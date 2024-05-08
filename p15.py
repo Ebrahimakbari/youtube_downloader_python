@@ -8,7 +8,7 @@ import requests
 def user_input():
     url = input('enter youtube link: ')
     # url = 'https://www.youtube.com/watch?v=tojomWMJvWY'
-    quality = input('enter quality of video[auto,1080p,720p,480p,240p]: ')?
+    quality = input('enter quality of video[auto,1080p,720p,480p,240p]: ')
     # quality = '480p'
     q_dict = {
         'auto':'1',
