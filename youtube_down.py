@@ -3,13 +3,14 @@ from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.support.ui import  WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
 import requests
 
 def user_input():
-    url = input('enter youtube link: ')
-    # url = 'https://www.youtube.com/watch?v=tojomWMJvWY'
-    quality = input('enter quality of video[auto,1080p,720p,480p,240p]: ')
-    # quality = '480p'
+    # url = input('enter youtube link: ')
+    url = 'https://www.youtube.com/watch?v=tojomWMJvWY'
+    # quality = input('enter quality of video[auto,1080p,720p,480p,240p]: ')
+    quality = '480p'
     q_dict = {
         'auto':'1',
         '1080p':'2',
@@ -27,7 +28,7 @@ def create_target_link(url):
 def get_link(url,q):
     op = Options()
     op.add_argument("--disable-notifications")
-    driver = webdriver.Chrome(options=op)
+    driver = webdriver.Chrome(options=op, service=Service('../chromedriver.exe')) #give your driver path
     driver.get(url)
     driver.maximize_window()
     origin_page = driver.current_window_handle
