@@ -6,10 +6,10 @@ from selenium.webdriver.chrome.options import Options
 import requests
 
 def user_input():
-    # url = input('enter youtube link: ')
-    url = 'https://www.youtube.com/watch?v=tojomWMJvWY'
-    # quality = input('enter quality of video[auto,1080p,720p,480p,240p]: ')
-    quality = '480p'
+    url = input('enter youtube link: ')
+    # url = 'https://www.youtube.com/watch?v=tojomWMJvWY'
+    quality = input('enter quality of video[auto,1080p,720p,480p,240p]: ')?
+    # quality = '480p'
     q_dict = {
         'auto':'1',
         '1080p':'2',
