@@ -6,14 +6,15 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 import requests
 
-q1 = 0
+quality = 0
+
+
 def user_input():
-    global q1
-    # url = input('enter youtube link: ')
-    url = 'https://www.youtube.com/watch?v=Q2zaO2C2vWk'
-    # quality = input('enter quality of video[auto,1080p,720p,480p,240p]: ')
-    quality = '480p'
-    q1 = quality
+    global quality
+    url = input('enter youtube link: ')
+    # url = 'https://www.youtube.com/watch?v=Q2zaO2C2vWk'
+    quality = input('enter quality of video[720p,480p,360p,240p,144p]: ')
+    # quality = '480p'
     q_dict = {
         '720p': 'btn22',
         '480p': 'btn135',
@@ -55,12 +56,12 @@ def download_vid(link):
         total = int(r.headers.get('content-length'))
         print(f'video size == {total/(1024*1024)}')
         download = 0
-        with open(f'{q1}.mp4', 'wb') as f:
+        with open(f'{quality}.mp4', 'wb') as f:
             print('downloading...')
             for data in r.iter_content(1024):
                 download += len(data)
                 downloaded = int(100*download/total)
-                print(f'\r[{'='*downloaded}{' '*(100-downloaded)}]', end='')
+                print(f'\r[{'O'*downloaded}{' '*(100-downloaded)}]', end='')
                 f.write(data)
     print('\ndownload completed!!!!')
 
